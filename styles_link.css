@@ -40,6 +40,7 @@ button {
     --link-hover: hsla(0,0%, 10%, 0.8);
     --link-active: orange;
     --header-color: rgb(243, 152, 40);
+    --animation-color: whitesmoke;
     --header-image: radial-gradient(orange, darkorange);
     --margin: clamp(1em, 2.5vh, 2.25em);
     --main-padding: clamp(1em, 2vh, 2.25em);
@@ -55,6 +56,18 @@ button {
     --textarea-margin: 0.50rem;
 }
 
+@media (prefers-color-scheme: light)
+{
+    :root{
+        --bgcolor: #000;
+        --bgcolor-fade: gray;
+        --header-color: #whitesmoke;
+        --body--bgcolor: #222;
+        --color: whitesmoke;
+        --header-image: radial-gradient(rgb(32, 30, 26), rgb(23, 23, 23));
+        --animation-color: #333;
+    }   
+}
 /*Utility classes */
 .offscreen {
     position: absolute;
@@ -93,6 +106,7 @@ body {
     border-left: var(--border);
     border-right: var(--border);
     box-shadow: 0px 0px 10px var(--bordercolor);
+    color: var(--color);
 }
 
 h1, h2, h3 {
@@ -152,6 +166,10 @@ header h1 {
     display: inline;
     font-size: var(--hfs);
 
+}
+
+.header h2 {
+    color: var(--animation-color);
 }
 
 header button {
@@ -293,6 +311,9 @@ main .image_1 {
     text-align: center;
 }
 
+.Menu table th {
+    color: var(--hightlight);
+}
 .Menu h2 {
     margin-bottom: 0.5rem;
 }
