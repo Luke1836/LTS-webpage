@@ -1,0 +1,420 @@
+@import url('https://fonts.googleapis.com/css2?family=Fugaz+One&family=Lato:wght@100;300;400&family=Merriweather:ital,wght@0,300;0,400;0,700;0,900;1,300;1,400;1,700;1,900&family=Nunito+Sans:opsz,wght@6..12,300;6..12,400&family=Pacifico&family=Roboto:wght@400;500;700&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+input,button,textarea {
+    font:inherit;
+}
+
+img {
+    display: block;
+    max-width: 100%;
+    height: auto;
+}
+
+button {
+    cursor: pointer;
+}
+
+/* ||VARIABLES */
+:root {
+    --ff: "Lato";
+    --hff: "Pacifico", cursive;
+    --fs: clamp(1rem, 2.2vh, 1.75rem);
+    --hfs: clamp(0.75rem, 3vh, 2.25rem);
+    --bgcolor: orange;
+    --bgcolor-fade: rgb(252,228,168);
+    --button-fs: clamp(0.75rem, 3vh, 1.75rem);
+    --bgimage: linear-gradient(to bottom, var(--bgcolor), var(--bgcolor-fade));
+    --body--bgcolor: #fff;
+    --color: #000;
+    --bordercolor: #333;
+    --xxfs: clamp(1.2rem, 2.5vh, 2.25rem);
+    --hightlight: rgb(91, 208, 59);
+    --border: 1px solid var(--bordercolor);
+    --linkcolor: #111;
+    --link-hover: hsla(0,0%, 10%, 0.8);
+    --link-active: orange;
+    --header-color: rgb(243, 152, 40);
+    --header-image: radial-gradient(orange, darkorange);
+    --margin: clamp(1em, 2.5vh, 2.25em);
+    --main-padding: clamp(1em, 2vh, 2.25em);
+    --nav-bgcolor: rgba(0, 0, 0, 0.87);
+    --navbar-color: whitesmoke;
+    --hero-color: whitesmoke;
+    --hero-bgcolor: rgba(71, 178, 51, 0.75);
+    --shadow-color: #333;
+    --footer-bgcolor: rgba(2, 2, 52, 0.858);
+    --footer-color: whitesmoke;
+    --footer-link: rgb(255, 140, 0);
+    --textarea-padding: 0.50em;
+    --textarea-margin: 0.50rem;
+}
+
+/*Utility classes */
+.offscreen {
+    position: absolute;
+    top: -100000000px;
+}
+
+.nowrap {
+    white-space: nowrap;
+}
+
+.center {
+    text-align: center;
+}
+
+.offset {
+    display: none;
+}
+
+/* ||END OF UTILITY CLASSES */
+
+
+/* Genral Styles */
+html {
+    scroll-behavior: smooth;
+    font-size: var(--fs);
+    font-family: var(--ff);
+    background-color: var(--bgcolor);
+    background-image: var(--bgimage);
+}
+
+body {
+    background-color: var(--body--bgcolor);
+    min-height: 100vh;
+    max-width: 800px;
+    margin: 0 auto;
+    border-left: var(--border);
+    border-right: var(--border);
+    box-shadow: 0px 0px 10px var(--bordercolor);
+}
+
+h1, h2, h3 {
+    font-family: var(--hff);
+}
+
+h2, h3 {
+    color: var(--hightlight);
+}
+
+p {
+    line-height: 1.5;
+}
+
+a {
+    text-decoration: none;
+}
+
+:is(a:link, a:visited) {
+    color: var(--linkcolor)
+}
+
+:is(a:hover, a:focus-visible) {
+    color: var(--link-hover);
+}
+
+a:active {
+    color: var(--link-active);
+}
+
+/* ||HEADER */
+header {
+    position: sticky;
+    z-index: 100000;
+    top: 0;
+    overflow: visible;
+}
+.header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background-color: var(--header-color);
+    background-image: var(--header-image);
+    height: clamp(4rem, 12vh, 6rem) ;
+}
+
+header img {
+    width: 2rem;
+    height: auto;
+    display: inline;
+    margin-inline: 1rem;
+    margin-left: 1.5rem;
+    cursor: pointer;
+}
+
+header h1 {
+    display: inline;
+    font-size: var(--hfs);
+
+}
+
+header button {
+    width: clamp(8rem, 16vh, 12rem);
+    height: clamp(2.5rem, 3vh, 3rem);
+    font-size: var(--fs);
+    margin-right: 1rem;
+    font-family: var(--ff);
+    font-weight: 600;
+    padding: 0.3rem 0.2rem;
+    border: 3px solid black;
+    border-radius: 18px;
+    background-image: linear-gradient(to right, rgb(255, 255, 35) 0%, rgb(255, 255, 33) 51%, rgb(229, 229, 14) 100%);
+}
+
+.b1:hover, .b1:focus-visible {
+    background-image: linear-gradient(to left, rgb(255, 255, 69) 0%, rgb(233, 233, 37) 51%, rgb(229, 229, 14) 100%);
+    transition-property: all;
+    transition-duration: 0.3s;
+    transition-timing-function: ease-in-out;
+}
+
+@media screen and (max-width: 400px) {
+    header button {
+        display: none;
+    }
+
+    .header {
+        justify-content: flex-start;
+    }
+
+    .navbar .offset {
+        display: block;
+    }
+    
+}
+:is(header:hover, header.focus-within)  nav {
+    display: block;
+}
+
+.navbar {
+    z-index: -1;
+    display: none;
+    transform-origin: top center;
+    background-color: var(--nav-bgcolor);
+    animation: showMenu 0.5s ease-in-out forwards;
+}
+
+@keyframes showMenu {
+    0% {
+        transform: scaleY(0);
+    }
+
+    80% {
+        transform: scaleY(1.2);
+    }
+
+    100% {
+        transform: scaleY(1);
+    }
+}
+
+nav li {
+    list-style-position: inside;
+    list-style: none;
+    padding: 0.25rem;
+    text-align: center;
+    
+}
+
+.navbar a {
+    font-size: 1.25rem;
+    color: var(--navbar-color);
+}
+
+.navbar a:hover, .navbar a:focus-within  {
+    font-size: 1.50rem;
+    transition-property: all;
+    transition-duration: 0.3s;
+}
+
+main {
+    padding: var(--main-padding);
+    min-height: calc(100vh - 20rem);
+    scroll-margin-top: 6.5rem;
+}
+/* ||Hero containers */
+
+.hero {
+    position: relative;
+}
+
+.hero h2 {
+    font-size: 2rem;
+    padding: 0.5rem;
+    color: var(--hero-color); 
+    background-color: var(--hero-bgcolor);
+    letter-spacing: 0.1rem;
+    text-shadow: 2px 2px 5px var(--shadow-color);
+    position: absolute;
+    top: -999999px;
+    left: 20px;
+    animation: dropDown 0.3s ease-in-out 0.4s forwards;
+}
+
+main .image_1 {
+    display: inline;
+    margin-inline: 0.25em;
+    width: 1.25rem;
+    height: auto;
+}
+
+@keyframes dropDown {
+    0% {
+        top: -20px;
+        transform: skew(0deg, -5deg) scaleY(0);
+    }
+
+    80% {
+        transform: skew(10deg, -5deg) scaleY(1.2);
+    }
+
+    100% {
+        top: 10px;
+        transform: skew(10deg, -5deg) scaleY(1);
+    }
+}
+
+.hero img {
+    flex-shrink: 1;
+    width: 100%;
+    height: auto;
+}
+
+/* ||Menu */
+.Menu table {
+    width: 100%;
+    margin: auto;
+    text-align: center;
+}
+
+.Menu h2 {
+    margin-bottom: 0.5rem;
+}
+
+.Menu table, th, thead, td{
+    border: 2px ridge var(--bordercolor);
+    background-color: var(--bgcolor-fade);
+    
+}
+
+.Menu table th, td, thead {
+    padding: 0.50rem;
+}
+
+
+/* ||About */
+.trivia {
+    margin: var(--margin);
+
+}
+
+.trivia-answer {
+    margin-top: 0em;
+}
+
+.hero-2 {
+    margin-bottom: 2.5rem;
+}
+
+/* ||Contact */
+.contact {
+    margin: var(--margin);
+
+}
+
+.contact-fieldset {
+    border: none;
+}
+
+.contact_p {
+    margin: 1em;
+}
+.contact-input, .contact_p textarea {
+    border-radius: 10px;
+    width: 100%;
+}
+
+.contact-input {
+    margin-top: var(--textarea-margin);
+    padding: var(--textarea-padding);
+    box-shadow: 0px 0px 2px var(--shadow-color);
+}
+
+.contact-label {
+    display: block;
+    font-weight: bold;
+}
+
+.contact_p textarea {
+    height: calc(50vh - 15rem);
+    margin-top: var(--textarea-margin);
+    padding: var(--textarea-padding);
+    box-shadow: 0px 0px 4px var(--shadow-color);
+}
+
+.contact-b2 {
+    width: clamp(8rem, 20vh, 15rem);
+    font-size: 1.25rem;
+    font-family: var(--ff);
+    font-weight: 600;
+    padding: 0.3rem 0.2rem;
+    border: 3px solid black;
+    border-radius: 18px;
+    flex-shrink: 1;
+    background-image: linear-gradient(to right, rgb(255, 255, 35) 0%, rgb(255, 255, 33) 51%, rgb(229, 229, 14) 100%);
+}
+
+.buttons {
+    display: flex;
+    flex-flow: row nowrap;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+/* ||Working hours */
+.hero-1 {
+    margin: 1rem;
+}
+
+.hero-1 p {
+    font-size: var(--xxfs);
+    font-weight: bold;
+}
+
+.hero-1 dd {
+    margin-left: 1rem;
+}
+
+.hero-1 dt {
+    color: orangered;
+    font-size: var(--xxfs);
+}
+/* ||Footer */
+.footer {
+    background-color: var(--footer-bgcolor);
+    color: var(--footer-color); 
+    line-height: 1.2;
+    text-align: center;
+    position: sticky;
+    bottom: 0;
+}
+
+footer a {
+    text-decoration: none;
+    font-weight: 600;
+    
+}
+
+footer a:link, footer a:visited {
+    color: var(--footer-link);
+}
+
+footer a:hover, footer a:focus-visible {
+    opacity: 0.8;
+}

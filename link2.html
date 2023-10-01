@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+
+        <meta name="Author" content="Luke Ericsson">
+        <meta charset="UTF-8">
+        <meta name="viewport" content="device_width, initial-scale= 1.0">
+        <title>Restaurent</title>
+        <link rel="stylesheet" href=".\styles_link.css">
+        
+
+    </head>
+
+    <body>
+        <header>
+            <div class="header">
+                <img class="image_1" src=".\Images\favicon.ico" loading="lazy">
+                <h1 class="heading_1">Contact Info</h1>
+                <button class="b1">Order Now</button>
+            </div>
+
+            <nav class="navbar">
+                <ul style="list-style-type: disc">
+                    <li>
+                        <a href="./project1.html">Home</a>
+                    </li>
+                    <li>
+                        <a href="./project1.html">About LTS</a>
+                    </li>
+                    <li>
+                        <a href="./project1.html">Our Menu</a>
+                    </li>
+                    <li>
+                        <a href="link1.html">Store Hours</a>
+                    </li>
+                </ul>
+            </nav>
+        </header>
+
+        <section class="hero">    
+            <figure>
+                <img class="i1" src="./Images\tacos_close_up_400x260.png" alt="Tacos" title="A Plate of Tacos" loading="lazy">
+                <figcaption class="offscreen">Tacos from Little Taco Shop</figcaption>
+            </figure>
+        </section>
+
+        <main>
+            <section name="hero-2 contact">
+                <h2 class="contact-h2">Contact Form</h2>
+                    <form action="https://httpbin.org/post" method="post" class="contact-form">
+                        <fieldset class="contact-fieldset">
+                            <legend class="offscreen">Send us a message</legend>
+                            <p class="contact_p">
+                                <label class="contact-label" for="name">Name: </label>
+                                <input class="contact-input" type="text" name="name" id="name" placeholder="Your name" required autocomplete="on">
+                            </p>
+                            <p class="contact_p">
+                                <label class="contact-label" for="E-mail">E-mail: </label>
+                                <input class="contact-input" type="text" name="E-mail" id="E-mail" placeholder="Your E-mail" required autocomplete="on">
+                            </p>
+                            <p class="contact_p">
+                                <label class="contact-label" for="message">Your Message:<br> </label>
+                                <textarea placeholder="Type your message" autofocus></textarea>
+                            </p>
+                        </fieldset>
+                        <div class="buttons">
+                        <button type="submit" class="contact-b2">Send</button>
+                        <button type="reset" class="contact-b2">Reset</button>
+                        </div>
+                    </form>
+            </section>
+            </main>
+            <footer class="footer">
+                <p>
+                    <span class="nowrap">Copyright&nbsp;&nbsp;&copy;</span><span class="nowrap">The Little Taco Shop</span><br>  
+                    <a href="#">Back to Top</a>
+                </p>
+            </footer>
+    </body>
+</html>
